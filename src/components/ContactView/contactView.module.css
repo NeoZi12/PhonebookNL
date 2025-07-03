@@ -2,18 +2,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
-  max-width: 800px;
-  gap: 1rem;
+  margin: 3rem auto;
+  max-width: 850px;
+  gap: 1.2rem;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
 }
 
 .button {
-  padding: 10px 16px;
+  padding: 12px 20px;
   font-size: 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.1);
 }
 
 .addButton {
@@ -22,7 +34,8 @@
 }
 
 .addButton:hover {
-  background-color: #0069d9;
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .deleteAllButton {
@@ -31,10 +44,16 @@
 }
 
 .deleteAllButton:hover {
-  background-color: #c82333;
+  background-color: #a71d2a;
+  transform: scale(1.05);
 }
 
 .errorMessage {
-  color: red;
-  font-weight: bold;
+  color: #d8000c;
+  background-color: #ffd2d2;
+  border: 1px solid #d8000c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(216, 0, 12, 0.2);
 }

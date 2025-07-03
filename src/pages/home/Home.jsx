@@ -24,7 +24,7 @@ export default function Home(props) {
         clearInterval(interval);
         setShowContacts(true);
       }
-    }, 70);
+    }, 10);
 
     return () => clearInterval(interval);
   }, []);
