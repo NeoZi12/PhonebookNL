@@ -111,8 +111,12 @@ export default function Login(props) {
               <button type="submit" onClick={() => handleSubmit()}>
                 Submit
               </button>
+              <p>Admin:</p>
               <p>user name: leonleon</p>
               <p>Password: Leon1996</p>
+              <p>user:</p>
+              <p>user name: testtest</p>
+              <p>Password : testtest</p>
             </div>
           </div>
         </form>
