@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./actions.module.css";
 
+// list for home page
 const webActions = [
   {
     icon: "👥",

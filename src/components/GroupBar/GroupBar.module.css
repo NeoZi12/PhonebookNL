@@ -1,0 +1,13 @@
+.groupWrap {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

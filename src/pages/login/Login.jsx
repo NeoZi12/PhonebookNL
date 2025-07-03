@@ -37,9 +37,10 @@ export default function Login(props) {
         el.password === userDetails.password
     );
 
+    // Check if user is admin
+    if (vertify.rule === "admin") props.setIsAdmin(true);
+
     if (vertify) {
-      // save the user into local storge
-      localStorage.setItem("loggedInUser", userDetails.userName);
       props.onLogIn(() => true);
 
       navigate("/home");

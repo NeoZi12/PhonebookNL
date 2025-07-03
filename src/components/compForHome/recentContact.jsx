@@ -2,6 +2,8 @@ import React from "react";
 
 import classes from "./actions.module.css";
 import getRandomAvatar from "../../functions/randomAvatar";
+
+// component that return recent contacts to home page
 export default function RecentContact(props) {
   console.log(props.recent);
 

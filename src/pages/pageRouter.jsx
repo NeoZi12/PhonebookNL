@@ -3,7 +3,6 @@ import {
   Routes,
   Route,
   Navigate,
-  data,
 } from "react-router-dom";
 
 import { useEffect, useState } from "react";
@@ -19,11 +18,17 @@ import getRandomAvatar from "../functions/randomAvatar";
 import getRandomGroup from "../functions/randomGruop";
 
 export default function PageRouter({ links }) {
+  //favorite list -> will contain id of persons
+  const [favorite, setFavorite] = useState([]);
+
   // used to protected navigate
   const [isLoggedIn, setLoggedIn] = useState(true);
 
   // contacts list
   const [contacts, setContacts] = useState([]);
+
+  // if admin
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn)
@@ -39,10 +44,14 @@ export default function PageRouter({ links }) {
           ...prev,
           ...data.data.map((item) => ({
             ...item,
+            //adding random pic
             src: getRandomAvatar(),
+            //adding random group
             group: getRandomGroup(),
           })),
         ]);
+        // set the filterContacts also
+        setFilteredContacts(contacts);
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -58,7 +67,10 @@ export default function PageRouter({ links }) {
           {/* you can add props to component as usual */}
 
           {/* Two separate routes for Home component */}
-          <Route path="/" element={<Login onLogIn={setLoggedIn} />} />
+          <Route
+            path="/"
+            element={<Login onLogIn={setLoggedIn} setIsAdmin={setIsAdmin} />}
+          />
           <Route
             path="/home"
             element={
@@ -77,6 +89,9 @@ export default function PageRouter({ links }) {
                   links={links}
                   contacts={contacts}
                   setContacts={setContacts}
+                  setFavorite={setFavorite}
+                  favorite={favorite}
+                  isAdmin={isAdmin}
                 />
               ) : (
                 <Navigate to={"/"} />
@@ -89,7 +104,14 @@ export default function PageRouter({ links }) {
             path="/groups"
             element={
               isLoggedIn ? (
-                <Groups links={links} contacts={contacts} />
+                <Groups
+                  links={links}
+                  contacts={contacts}
+                  setContacts={setContacts}
+                  setFavorite={setFavorite}
+                  favorite={favorite}
+                  isAdmin={isAdmin}
+                />
               ) : (
                 <Navigate to={"/"} />
               )

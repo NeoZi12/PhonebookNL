@@ -9,7 +9,6 @@ export default function SearchBar(props) {
     // if empty need to show all contacts.
     if (e.target.value === "") {
       props.setContacts(props.contacts);
-      console.log("got here");
     } else {
       // return contacts that starts with user input using filter function
       // props.setContacts is a function
