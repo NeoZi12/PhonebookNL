@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./addForm.module.css";
 import { use } from "react";
 
+// Add contact form
 export default function AddForm({ addfunc, setForm }) {
   // person details
   const [formData, setFormData] = useState({

@@ -7,6 +7,7 @@ import PageRouter from "../pages/pageRouter";
 
 import { links } from "../data/links";
 
+// App Component
 export default function App() {
   return (
     <div>

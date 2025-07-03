@@ -8,7 +8,9 @@ import { useEffect, useState } from "react";
 import classes from "../page.module.css";
 import homeClasses from "./home.module.css";
 
+// Home page
 export default function Home(props) {
+  // recent contacts
   const recentContacts = props.contacts.slice(-3);
 
   const fullText = "Welcome to Your Personal Contact Manager!";

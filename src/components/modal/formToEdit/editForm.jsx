@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 import classes from "./editForm.module.css";
 
+// Edit user form
 export default function EditForm(props) {
+  // user detailes
   const [formData, setFormData] = useState({
     firstname: props.contact.firstname,
     lastname: props.contact.lastname,

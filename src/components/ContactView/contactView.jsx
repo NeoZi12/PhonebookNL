@@ -9,6 +9,8 @@ import GroupBar from "../../components/GroupBar/GroupBar";
 import validateUser from "../../functions/validateUser";
 import classes from "./contactView.module.css";
 
+// Contact page for pages (contacts and groups)
+// contain all the function off adding remove and edit
 export default function ContactView({
   links,
   contacts,

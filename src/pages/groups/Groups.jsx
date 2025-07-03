@@ -6,8 +6,6 @@ import ContactView from "../../components/ContactView/contactView";
 
 //Page group -> show contacts and group bar
 export default function Groups(props) {
-  const [activeGroup, setActiveGroup] = useState("all");
-
   return (
     <div className={classes.page}>
       <Header />

@@ -7,7 +7,7 @@ import { users } from "../../data/users";
 
 import { useNavigate } from "react-router-dom";
 
-// log in function
+// Log in
 export default function Login(props) {
   const [showPass, setShowPass] = useState("password");
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ export default function Login(props) {
   // err msg
   const [errMsg, setErrMsg] = useState();
 
+  // Handle log in
   function handleSubmit(e) {
     e.preventDefault();
     // cheking if the user Exists and also if the password the same

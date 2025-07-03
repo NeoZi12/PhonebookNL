@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classes from "./searchBar.module.css";
 import { CiSearch } from "react-icons/ci";
 
+// search bar component 
 export default function SearchBar(props) {
   // save the contacts
 

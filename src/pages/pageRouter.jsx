@@ -17,6 +17,7 @@ import NotFound from "./NotFound";
 import getRandomAvatar from "../functions/randomAvatar";
 import getRandomGroup from "../functions/randomGruop";
 
+// Handle with page routes -> called from App
 export default function PageRouter({ links }) {
   //favorite list -> will contain id of persons
   const [favorite, setFavorite] = useState([]);
