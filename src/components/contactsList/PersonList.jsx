@@ -31,6 +31,8 @@ export default function PersonList(props) {
         favorite={props.favorite}
         compactView={props.compactView}
         isAdmin={props.isAdmin}
+        setShowAddContact={props.setShowAddContact}
+        showAddContact={props.showAddContact}
       />
     );
   });

@@ -6,7 +6,6 @@ import classes from "../page.module.css";
 
 import ContactView from "../../components/ContactView/contactView";
 export default function Contacts(props) {
-  console.log(props.isAdmin);
   return (
     <div className={classes.page}>
       <Header />

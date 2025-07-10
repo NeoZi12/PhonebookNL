@@ -29,7 +29,7 @@ export default function PageRouter({ links }) {
   const [contacts, setContacts] = useState([]);
 
   // if admin
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     if (!isLoggedIn)

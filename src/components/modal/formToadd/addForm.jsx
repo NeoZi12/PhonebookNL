@@ -3,14 +3,21 @@ import classes from "./addForm.module.css";
 import { use } from "react";
 
 // Add contact form
-export default function AddForm({ addfunc, setForm }) {
+export default function AddForm({
+  addNewContactFun,
+  editAction,
+  setForm,
+  contact,
+  editContact,
+  setShowEdit,
+}) {
   // person details
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    group: "family",
+    firstname: contact?.firstname || "",
+    lastname: contact?.lastname || "",
+    email: contact?.email || "",
+    phone: contact?.phone || "",
+    group: contact?.group || "family",
   });
 
   const [showErr, setShowErr] = useState(false);
@@ -27,8 +34,14 @@ export default function AddForm({ addfunc, setForm }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // make sure all the fields are filled
+    // in case user want to edit
+    if (editAction) {
+      editContact(contact.id, formData);
+      setShowEdit(false);
+      return;
+    }
     if (!formData.firstname || !formData.email || !formData.phone) {
+      // make sure all the fields are filled
       setShowErr(true);
       return;
     }
@@ -43,17 +56,26 @@ export default function AddForm({ addfunc, setForm }) {
     };
 
     // calling the function from contacts
-    addfunc(newContact);
+    addNewContactFun(newContact);
+    setForm(false);
+  }
+
+  // this fucntion close the add form
+  function closeForm() {
+    if (editAction) {
+      setShowEdit(false);
+      return;
+    }
     setForm(false);
   }
 
   return (
     <div className={classes.overlay}>
       <div className={classes.content}>
-        <span className={classes.close} onClick={() => setForm(false)}>
+        <span className={classes.close} onClick={() => closeForm()}>
           X
         </span>
-        <h2>Add contact</h2>
+        {editAction ? <h2>Edit contact</h2> : <h2>Add contact</h2>}
         <form onSubmit={handleSubmit} autoComplete="off">
           <p>
             first Name:
@@ -99,7 +121,9 @@ export default function AddForm({ addfunc, setForm }) {
               <option value="school">School</option>
             </select>
           </p>
-          <button type="submit">Add contact</button>
+          {!editAction && <button type="submit">Add contact</button>}
+          {editAction && <button type="submit">Edit contact</button>}
+
           {showErr && <p style={{ color: "red" }}>All fields are required.</p>}
         </form>
       </div>

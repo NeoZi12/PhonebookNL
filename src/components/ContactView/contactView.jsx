@@ -148,7 +148,10 @@ export default function ContactView({
         />
 
         {showAddContact && isAdmin && (
-          <AddForm addfunc={addNewContact} setForm={setShowAddContact} />
+          <AddForm
+            addNewContactFun={addNewContact}
+            setForm={setShowAddContact}
+          />
         )}
       </main>
     </div>
