@@ -23,21 +23,17 @@ export default function PageRouter({ links }) {
   const [favorite, setFavorite] = useState([]);
 
   // used to protected navigate
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   // contacts list
   const [contacts, setContacts] = useState([]);
 
   // if admin
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (!isLoggedIn)
-      return (
-        <div>
-          <p>no contacts</p>
-        </div>
-      );
+    if (!isLoggedIn) return;
+
     fetch("https://fakerapi.it/api/v1/persons?_quantity=10")
       .then((res) => res.json())
       .then((data) => {
@@ -57,7 +53,7 @@ export default function PageRouter({ links }) {
       .catch((err) => {
         console.log("Error:", err);
       });
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <section className={classes.app}>
@@ -70,7 +66,9 @@ export default function PageRouter({ links }) {
           {/* Two separate routes for Home component */}
           <Route
             path="/"
-            element={<Login onLogIn={setLoggedIn} setIsAdmin={setIsAdmin} />}
+            element={
+              <Login setLoggedIn={setLoggedIn} setIsAdmin={setIsAdmin} />
+            }
           />
           <Route
             path="/home"

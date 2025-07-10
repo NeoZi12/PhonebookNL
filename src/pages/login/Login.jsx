@@ -42,14 +42,13 @@ export default function Login(props) {
     if (vertify.rule === "admin") props.setIsAdmin(true);
 
     if (vertify) {
-      props.onLogIn(() => true);
-
+      props.setLoggedIn(true);
       navigate("/home");
+      return;
     } else {
       setErrMsg("password or user name is invalid");
       return;
     }
-    return;
   }
 
   // change function -> when user typing
@@ -109,9 +108,7 @@ export default function Login(props) {
             </div>
 
             <div>
-              <button type="submit" onClick={() => handleSubmit()}>
-                Submit
-              </button>
+              <button type="submit">Submit</button>
               <p>Admin:</p>
               <p>user name: leonleon</p>
               <p>Password: Leon1996</p>
