@@ -1,4 +1,4 @@
-import classes from './footer.module.css';
+import classes from "./footer.module.css";
 
 /**
  * Footer component
@@ -9,9 +9,9 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <p className={classes.myP + ' ' + classes.temp}>
-        {' '}
-        <span>&copy;</span> {date} by leon gitelman 49/3 
+      <p className={classes.myP + " " + classes.temp}>
+        {" "}
+        <span>&copy;</span> {date} by leon gitelman Neo Zino 49/3
       </p>
     </footer>
   );
